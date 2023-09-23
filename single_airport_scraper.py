@@ -5,6 +5,9 @@ import string
 import datetime
 import pytz
 
+# Custom Flight class
+from Flight import Flight
+
 airportless_url = "https://www.flightaware.com/live/airport/"
 
 # https://www.zenrows.com/blog/user-agent-web-scraping#best
@@ -91,7 +94,7 @@ def get_airport_flights(airport_code):
             else:
                 print("Error: Malformatted time!")
 
-        flights.append(info)
+        flights.append(Flight(*info))  # unrolling list into args
 
     return flights
 
@@ -103,20 +106,23 @@ def make_plane_histogram():
     global all_airports
     # Get a list of all airports
 
+    counter = 0
+
     planes_hist = {}
     for airport in all_airports:
         print(airport)
         flights = get_airport_flights(airport_code=airport)
-        #print(flights)
 
         for flight in flights:
             # Must check whether airport is in list of airports
-            if flight[1] not in planes_hist:
-                planes_hist[flight[1]] = 0
-            planes_hist[flight[1]] += 1
+            if flight.plane not in planes_hist:
+                planes_hist[flight.plane] = 0
+            planes_hist[flight.plane] += 1
+            counter += 1
 
     print(planes_hist)
+    print(counter)
 
-# 3:56 -
+
 
 make_plane_histogram()
