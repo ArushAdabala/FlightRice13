@@ -5,10 +5,10 @@ import string
 import datetime
 import pytz
 
-# Custom Flight class
+# Custom Flight and Airport class
 from Flight import Flight
+from Airport import Airport
 
-airportless_url = "https://www.flightaware.com/live/airport/"
 
 # https://www.zenrows.com/blog/user-agent-web-scraping#best
 headers = {
@@ -29,9 +29,11 @@ timezones = {"CST": "America/Chicago",
 
 # print(pytz.all_timezones_set)
 
+printable = set(string.printable)
+
 # Get all airports
 with open("airports.txt", "r") as airports_file:
-    all_airports = airports_file.read().split("\n")
+    all_airport_codes = airports_file.read().split("\n")
 
 
 def formatted_time_to_datetime(time, a_or_p):
@@ -56,14 +58,13 @@ def formatted_time_to_datetime(time, a_or_p):
 def get_airport_flights(airport_code):
     global airportless_url, headers
 
+    airportless_url = "https://www.flightaware.com/live/airport/"
     page = requests.get(airportless_url + airport_code)
     soup = BeautifulSoup(page.text, "html.parser")
 
     airport_board = soup.find("table", {"class": "fullWidth airportBoard", "data-type": "departures"})
 
     rows = airport_board.find_all("tr", id=re.compile('^Row_outbound_'))
-
-    printable = set(string.printable)
 
     flights = []
     for row in rows:
@@ -79,7 +80,7 @@ def get_airport_flights(airport_code):
         dest_code = info[2].split("(")[1].split(")")[0]
         if len(dest_code) < 4:
             dest_code = "K" + dest_code  # We're just going to assume this
-        if dest_code not in all_airports:
+        if dest_code not in all_airport_codes:
             print(f"No valid destination! ({dest_code})")
             continue
         info.insert(3, dest_code)
@@ -99,17 +100,14 @@ def get_airport_flights(airport_code):
     return flights
 
 
-#print(get_airport_flights(airport_code="KSHR"))
-
-
-def make_plane_histogram():
-    global all_airports
+def make_planes_histogram():
+    global all_airport_codes
     # Get a list of all airports
 
     counter = 0
 
     planes_hist = {}
-    for airport in all_airports:
+    for airport in all_airport_codes[:10]:
         print(airport)
         flights = get_airport_flights(airport_code=airport)
 
@@ -124,5 +122,32 @@ def make_plane_histogram():
     print(counter)
 
 
+def get_airport(airport_code):
+    # Gets information like name, geographical position, flights and returns an Airport object with it
+    codeless_url = "https://www.flightaware.com/resources/airport/"
+    page = requests.get(codeless_url + airport_code)
+    soup = BeautifulSoup(page.text, "html.parser")
 
-make_plane_histogram()
+    info_table = soup.find("table", {"class": "prettyTable tablesaw tablesaw-stack"})
+
+    info_rows = info_table.find_all("tr")
+
+    tds = info_rows[1].find_all("td", {"class": "smallrow1"})
+    a = tds[0].find("a")
+    name = a.text.split(",")[0]
+
+    tds = info_rows[1].find_all("td", {"class": "smallrow2"})
+
+    position_data = tds[0].text
+    coords = position_data.strip().split("\n")[0]
+    coords = [float(datum) for datum in coords.split(",")]
+    elev = float(position_data.strip().split("\n")[1].split("/")[1].replace("meters", ""))
+
+    flights = get_airport_flights(airport_code)
+
+    return Airport(id=airport_code, name=name, coords=coords, elev=elev, flights=flights)
+
+
+a = get_airport("KIAH")
+print(a)
+print([str(f) for f in a.flights])
