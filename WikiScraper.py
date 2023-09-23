@@ -14,6 +14,9 @@ soup = BeautifulSoup(page.text, "html.parser")
 airports = soup.find("table", {"class" : "wikitable sortable"})
 for tr in airports.find_all('tr'):
     a = tr.find_all("td")
-    f.write(a[3].text if len(a) > 3 else "")
+    code = a[3].text if len(a) > 3 else ""
+    # Take out all airports whose codes don't start with K (continental US)
+    if len(code) > 0 and code[0] == "K":
+        f.write(code)
 
 f.close()
