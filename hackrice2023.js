@@ -160,7 +160,7 @@ function updateCanvasSize() {
   // Works
   let canvasDiv = document.getElementById('main');
   if (width != canvasDiv.offsetWidth || height != canvasDiv.offsetHeight) {
-    resizeCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
+    resizeCanvas(canvasDiv.offsetWidth * 0.9, canvasDiv.offsetHeight);
   }
 }
 
