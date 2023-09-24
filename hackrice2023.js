@@ -106,10 +106,13 @@ function fitToContainer(canvas){
   canvas.style.width ='100%';
   canvas.style.height='100%';
   // ...then set the internal size to match
-  resizeCanvas(canvas.offsetWidth, canvas.offsetHeight);
+  canvas.width = offsetWidth;
+  canvas.height = offsetHeight;
   print("canvas fitted to container");
+  print(canvas.style.width);
 }
 
-function windowResized(){
+function windowResized() {
+  // called when window is resized
   fitToContainer(canva);
 }
