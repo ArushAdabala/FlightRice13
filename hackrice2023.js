@@ -116,12 +116,17 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         }
         unvisited.delete(currentAirport)
 
-        for (flight in currentAirportAirport.flights){
-            function calcWeights(flight){
-
+        for (flight in currentAirport.flights){
+            function calcWeights(curr_flight){
+                curr_flight.duration * Number(time_weight) + curr_flight.carbon * Number(carbon_weight)
+            }
+            if (distances[currentAirport] + calcWeights(flight) < distances[flight.dest_code]){
+                distances[flight.dest_code] = distances[currAirport] + calc_weights(flight)
+                paths[flight.dest_code] = paths[currAirport] + [flight.dest_code]
             }
         }
     }
+    return "no flight path found"
 }
 
 function updateCanvasSize() {
