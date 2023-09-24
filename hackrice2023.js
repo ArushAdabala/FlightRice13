@@ -7,7 +7,8 @@ function preload() {
 
 
 function setup() {
-  let canva = createCanvas(800, 600);
+  var canvasDiv = document.getElementById('canvasContainer');
+  let canva = createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
   canva.parent("canvasContainer")
   
   /*
