@@ -6,16 +6,16 @@
 }
 
 .main-content {
-    height: 80vh;
+    height: 60vh;
     background-color: #f2f2f2;
 }
 
 .side-div {
-    height: 80vh;
+    height: 60vh;
     background-color: #d9d9d9;
 }
 
 .bottom-div {
-    height: 20vh;
+    height: 40vh;
     background-color: #bfbfbf;
 }
