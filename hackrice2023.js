@@ -52,6 +52,7 @@ function coordsToScreenPos(pos) {
 
 
 function highlightPath() {
+  print(latestPath);
   if (latestPath != null) {
     stroke(255,255,0);
     strokeWeight(2);
