@@ -9,10 +9,10 @@ function preload() {
 
 function setup() {
   let parentDiv = document.getElementById("main")
-  canva = createCanvas(parentDiv.offsetWidth,400);
+  canva = createCanvas(parentDiv.offsetWidth,300);
   canva.parent("main")
 
-  //fitToContainer(canva);
+  fitToContainer(canva);
   
   /*
   let boy = { thing1: func => boy.thing2 = "a", thing2: true };
@@ -31,8 +31,8 @@ function setup() {
 
 function draw() {
   background(128 * sin(millis()/1000), 64, 64);
-  //drawEdges();
-  //drawNodes();
+  drawEdges();
+  drawNodes();
 }
 
 
@@ -154,9 +154,8 @@ function fitToContainer(canvas){
   print(canvas.style.width);
 }
 
-/*
+
 function windowResized() {
   // called when window is resized
   fitToContainer(canva);
 }
-*/

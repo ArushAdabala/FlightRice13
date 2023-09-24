@@ -20,7 +20,7 @@
     background-color: #bfbfbf;
 }
 
-.td {
+table.inputTable td {
     text-align: center;
     vertical-align: middle;
 }
