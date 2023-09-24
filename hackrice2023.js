@@ -178,4 +178,5 @@ function fitToContainer(canvas){
 function windowResized() {
   // called when window is resized
   updateCanvasSize();
+  draw();
 }
