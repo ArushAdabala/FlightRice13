@@ -22,16 +22,15 @@ function setup() {
     print("Two")
   }
   */
-  
-  noLoop();
+  //noLoop();
 }
 
 
 function draw() {
   updateCanvasSize();
   background(128 * sin(millis()/1000), 64, 64);
-  drawEdges();
-  drawNodes();
+  //drawEdges();
+  //drawNodes();
 }
 
 
