@@ -1665,14 +1665,6 @@
         "plane": "GLF4"
       },
       {
-        "carbon": 101.0,
-        "dest_code": "KRNO",
-        "dest_name": "Reno/Tahoe Intl (RNO)",
-        "duration": -74640.0,
-        "id": "AAY4072",
-        "plane": "A320"
-      },
-      {
         "carbon": 153.0,
         "dest_code": "KPHX",
         "dest_name": "Phoenix Sky Harbor Intl (PHX)",
@@ -2929,14 +2921,6 @@
         "plane": "A320"
       },
       {
-        "carbon": 70.0,
-        "dest_code": "KLEX",
-        "dest_name": "Blue Grass (KLEX)",
-        "duration": -82680.0,
-        "id": "N2313Q",
-        "plane": "PA46"
-      },
-      {
         "carbon": 103.0,
         "dest_code": "KDFW",
         "dest_name": "Dallas-Fort Worth Intl (DFW)",
@@ -3455,14 +3439,6 @@
         "duration": 2160.0,
         "id": "N336S",
         "plane": "BE36"
-      },
-      {
-        "carbon": 108.0,
-        "dest_code": "KLIT",
-        "dest_name": "Clinton National (KLIT)",
-        "duration": -82020.0,
-        "id": "N152WL",
-        "plane": "BE20"
       }
     ],
     "id": "KBTR",
@@ -3974,14 +3950,6 @@
         "duration": 2400.0,
         "id": "AAY4713",
         "plane": "A320"
-      },
-      {
-        "carbon": 127.0,
-        "dest_code": "KATL",
-        "dest_name": "Hartsfield-Jackson Intl (ATL)",
-        "duration": -81600.0,
-        "id": "NKS1436",
-        "plane": "A20N"
       },
       {
         "carbon": 116.0,
@@ -4945,14 +4913,6 @@
         "plane": "A321"
       },
       {
-        "carbon": 127.0,
-        "dest_code": "KMCO",
-        "dest_name": "Orlando Intl (MCO)",
-        "duration": -78180.0,
-        "id": "FFT1047",
-        "plane": "A20N"
-      },
-      {
         "carbon": 62.0,
         "dest_code": "KIAD",
         "dest_name": "Washington Dulles Intl (IAD)",
@@ -5108,14 +5068,6 @@
         "dest_name": "Philadelphia Intl (PHL)",
         "duration": 4440.0,
         "id": "FFT2316",
-        "plane": "A20N"
-      },
-      {
-        "carbon": 127.0,
-        "dest_code": "KFLL",
-        "dest_name": "Fort Lauderdale Intl (FLL)",
-        "duration": -80520.0,
-        "id": "NKS980",
         "plane": "A20N"
       },
       {
@@ -6569,30 +6521,6 @@
       },
       {
         "carbon": 127.0,
-        "dest_code": "KFLL",
-        "dest_name": "Fort Lauderdale Intl (FLL)",
-        "duration": -73920.0,
-        "id": "NKS1320",
-        "plane": "A20N"
-      },
-      {
-        "carbon": 127.0,
-        "dest_code": "KSAN",
-        "dest_name": "San Diego Intl (SAN)",
-        "duration": -79380.0,
-        "id": "FFT551",
-        "plane": "A20N"
-      },
-      {
-        "carbon": 103.0,
-        "dest_code": "KSLC",
-        "dest_name": "Salt Lake City Intl (SLC)",
-        "duration": -82080.0,
-        "id": "FFT573",
-        "plane": "A321"
-      },
-      {
-        "carbon": 127.0,
         "dest_code": "KLAS",
         "dest_name": "Harry Reid Intl (LAS)",
         "duration": 5820.0,
@@ -6744,14 +6672,6 @@
         "dest_name": "Ontario Intl (ONT)",
         "duration": 10020.0,
         "id": "FFT2735",
-        "plane": "A321"
-      },
-      {
-        "carbon": 103.0,
-        "dest_code": "KCLT",
-        "dest_name": "Charlotte/Douglas Intl (CLT)",
-        "duration": -79080.0,
-        "id": "AAL579",
         "plane": "A321"
       }
     ],
@@ -7342,14 +7262,6 @@
         "duration": 7800.0,
         "id": "NKS367",
         "plane": "A320"
-      },
-      {
-        "carbon": 70.0,
-        "dest_code": "KEWR",
-        "dest_name": "Newark Liberty Intl (EWR)",
-        "duration": -81780.0,
-        "id": "GJS4497",
-        "plane": "CRJ7"
       },
       {
         "carbon": 107.0,
@@ -9457,14 +9369,6 @@
         "plane": "A320"
       },
       {
-        "carbon": 71.0,
-        "dest_code": "KSRQ",
-        "dest_name": "Sarasota/Bradenton Intl (KSRQ)",
-        "duration": -82500.0,
-        "id": "N4143P",
-        "plane": "PA23"
-      },
-      {
         "carbon": 69.0,
         "dest_code": "KPIE",
         "dest_name": "Clearwater Intl (KPIE)",
@@ -11533,14 +11437,6 @@
         "duration": 2460.0,
         "id": "SCX8717",
         "plane": "B738"
-      },
-      {
-        "carbon": 62.0,
-        "dest_code": "KLAX",
-        "dest_name": "Los Angeles Intl (LAX)",
-        "duration": -67920.0,
-        "id": "UAL1738",
-        "plane": "B39M"
       }
     ],
     "id": "KIAD",
@@ -12736,14 +12632,6 @@
         "plane": "PC12"
       },
       {
-        "carbon": 101.0,
-        "dest_code": "KJFK",
-        "dest_name": "John F Kennedy Intl (JFK)",
-        "duration": -79440.0,
-        "id": "JBU1678",
-        "plane": "A320"
-      },
-      {
         "carbon": 66.0,
         "dest_code": "KMLB",
         "dest_name": "Melbourne Orlando Intl (KMLB)",
@@ -13833,14 +13721,6 @@
         "duration": 4620.0,
         "id": "NKS892",
         "plane": "A320"
-      },
-      {
-        "carbon": 127.0,
-        "dest_code": "KATL",
-        "dest_name": "Hartsfield-Jackson Intl (ATL)",
-        "duration": -78480.0,
-        "id": "FFT2271",
-        "plane": "A20N"
       },
       {
         "carbon": 101.0,
@@ -15024,14 +14904,6 @@
         "plane": "C68A"
       },
       {
-        "carbon": 74.0,
-        "dest_code": "KJAX",
-        "dest_name": "Jacksonville Intl (KJAX)",
-        "duration": -80040.0,
-        "id": "STY543",
-        "plane": "LJ60"
-      },
-      {
         "carbon": 167.0,
         "dest_code": "KDAL",
         "dest_name": "Dallas Love Fld (KDAL)",
@@ -15873,14 +15745,6 @@
         "plane": "CRJ9"
       },
       {
-        "carbon": 62.0,
-        "dest_code": "KDAB",
-        "dest_name": "Daytona Beach Intl (KDAB)",
-        "duration": -81540.0,
-        "id": "ERU829",
-        "plane": "C172"
-      },
-      {
         "carbon": 66.0,
         "dest_code": "KSRQ",
         "dest_name": "Sarasota/Bradenton Intl (KSRQ)",
@@ -16489,14 +16353,6 @@
         "plane": "B752"
       },
       {
-        "carbon": 100.0,
-        "dest_code": "KSTL",
-        "dest_name": "St Louis Lambert Intl (STL)",
-        "duration": -82260.0,
-        "id": "DAL2103",
-        "plane": "B739"
-      },
-      {
         "carbon": 101.0,
         "dest_code": "KOMA",
         "dest_name": "Eppley Airfield (OMA)",
@@ -16615,25 +16471,9 @@
         "carbon": 127.0,
         "dest_code": "KLAS",
         "dest_name": "Harry Reid Intl (LAS)",
-        "duration": -73500.0,
-        "id": "NKS476",
-        "plane": "A20N"
-      },
-      {
-        "carbon": 127.0,
-        "dest_code": "KLAS",
-        "dest_name": "Harry Reid Intl (LAS)",
         "duration": 12660.0,
         "id": "NKS1891",
         "plane": "A20N"
-      },
-      {
-        "carbon": 153.0,
-        "dest_code": "KJFK",
-        "dest_name": "John F Kennedy Intl (JFK)",
-        "duration": -73980.0,
-        "id": "DAL2094",
-        "plane": "A319"
       },
       {
         "carbon": 168.0,
@@ -18390,14 +18230,6 @@
         "plane": "E145"
       },
       {
-        "carbon": 116.0,
-        "dest_code": "KJFK",
-        "dest_name": "John F Kennedy Intl (JFK)",
-        "duration": -77520.0,
-        "id": "DAL1625",
-        "plane": "B738"
-      },
-      {
         "carbon": 101.0,
         "dest_code": "KBDL",
         "dest_name": "Bradley Intl (BDL)",
@@ -18495,30 +18327,6 @@
         "duration": 12900.0,
         "id": "QXE2047",
         "plane": "E75L"
-      },
-      {
-        "carbon": 103.0,
-        "dest_code": "KPHL",
-        "dest_name": "Philadelphia Intl (PHL)",
-        "duration": -69660.0,
-        "id": "AAL2585",
-        "plane": "A321"
-      },
-      {
-        "carbon": 100.0,
-        "dest_code": "KEWR",
-        "dest_name": "Newark Liberty Intl (EWR)",
-        "duration": -68640.0,
-        "id": "UAL477",
-        "plane": "B739"
-      },
-      {
-        "carbon": 100.0,
-        "dest_code": "KATL",
-        "dest_name": "Hartsfield-Jackson Intl (ATL)",
-        "duration": -71220.0,
-        "id": "DAL570",
-        "plane": "B739"
       },
       {
         "carbon": 103.0,
@@ -18913,30 +18721,6 @@
         "duration": 13320.0,
         "id": "AAL1542",
         "plane": "A21N"
-      },
-      {
-        "carbon": 155.0,
-        "dest_code": "KPHL",
-        "dest_name": "Philadelphia Intl (PHL)",
-        "duration": -72180.0,
-        "id": "AAL972",
-        "plane": "A21N"
-      },
-      {
-        "carbon": 155.0,
-        "dest_code": "KMCO",
-        "dest_name": "Orlando Intl (MCO)",
-        "duration": -72660.0,
-        "id": "FFT1286",
-        "plane": "A21N"
-      },
-      {
-        "carbon": 69.0,
-        "dest_code": "KSNA",
-        "dest_name": "John Wayne (KSNA)",
-        "duration": -82080.0,
-        "id": "WCC86",
-        "plane": "B350"
       }
     ],
     "id": "KPHX",
@@ -21708,46 +21492,6 @@
         "plane": "E55P"
       },
       {
-        "carbon": 155.0,
-        "dest_code": "KPHL",
-        "dest_name": "Philadelphia Intl (PHL)",
-        "duration": -70980.0,
-        "id": "AAL2328",
-        "plane": "A21N"
-      },
-      {
-        "carbon": 100.0,
-        "dest_code": "KJFK",
-        "dest_name": "John F Kennedy Intl (JFK)",
-        "duration": -69060.0,
-        "id": "ASA36",
-        "plane": "B739"
-      },
-      {
-        "carbon": 103.0,
-        "dest_code": "KDTW",
-        "dest_name": "Detroit Metro Wayne Co (DTW)",
-        "duration": -72780.0,
-        "id": "DAL962",
-        "plane": "A321"
-      },
-      {
-        "carbon": 155.0,
-        "dest_code": "KBOS",
-        "dest_name": "Boston Logan Intl (BOS)",
-        "duration": -68160.0,
-        "id": "DAL571",
-        "plane": "A21N"
-      },
-      {
-        "carbon": 155.0,
-        "dest_code": "KMIA",
-        "dest_name": "Miami Intl (MIA)",
-        "duration": -70980.0,
-        "id": "AAL2578",
-        "plane": "A21N"
-      },
-      {
         "carbon": 127.0,
         "dest_code": "KLAS",
         "dest_name": "Harry Reid Intl (LAS)",
@@ -22624,30 +22368,6 @@
         "duration": 17160.0,
         "id": "ASA26",
         "plane": "B738"
-      },
-      {
-        "carbon": 62.0,
-        "dest_code": "KIAD",
-        "dest_name": "Washington Dulles Intl (IAD)",
-        "duration": -70440.0,
-        "id": "ASA498",
-        "plane": "B39M"
-      },
-      {
-        "carbon": 100.0,
-        "dest_code": "KDFW",
-        "dest_name": "Dallas-Fort Worth Intl (DFW)",
-        "duration": -74340.0,
-        "id": "ASA542",
-        "plane": "B739"
-      },
-      {
-        "carbon": 69.0,
-        "dest_code": "KIAD",
-        "dest_name": "Washington Dulles Intl (IAD)",
-        "duration": -70380.0,
-        "id": "DAL719",
-        "plane": "BCS1"
       }
     ],
     "id": "KSEA",
@@ -23105,14 +22825,6 @@
         "plane": "A320"
       },
       {
-        "carbon": 127.0,
-        "dest_code": "KLAS",
-        "dest_name": "Harry Reid Intl (LAS)",
-        "duration": -82680.0,
-        "id": "NKS2523",
-        "plane": "A20N"
-      },
-      {
         "carbon": 168.0,
         "dest_code": "KBUR",
         "dest_name": "Bob Hope (BUR)",
@@ -23325,22 +23037,6 @@
         "duration": 13200.0,
         "id": "DAL1337",
         "plane": "B739"
-      },
-      {
-        "carbon": 153.0,
-        "dest_code": "KOAK",
-        "dest_name": "Metro Oakland Intl (OAK)",
-        "duration": -81300.0,
-        "id": "DAL2924",
-        "plane": "A319"
-      },
-      {
-        "carbon": 72.0,
-        "dest_code": "KPHL",
-        "dest_name": "Philadelphia Intl (PHL)",
-        "duration": -72240.0,
-        "id": "DAL1730",
-        "plane": "BCS3"
       }
     ],
     "id": "KSLC",
@@ -23378,14 +23074,6 @@
         "duration": 5160.0,
         "id": "ASA9687",
         "plane": "B39M"
-      },
-      {
-        "carbon": 103.0,
-        "dest_code": "KCLT",
-        "dest_name": "Charlotte/Douglas Intl (CLT)",
-        "duration": -71220.0,
-        "id": "AAL2464",
-        "plane": "A321"
       },
       {
         "carbon": 101.0,

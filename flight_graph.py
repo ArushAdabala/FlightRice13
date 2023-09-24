@@ -71,19 +71,22 @@ if __name__ == "__main__":
         #json_file.write(json_string)
 
     # Load flight data from JSON, skip scraping
-    fg = None
+    # fg = None
+    # with open("graph.json", "r") as json_file:
+    #     json_from_file = json.load(json_file)
+    #     fg = flight_graph.from_dict(json_from_file)
+    #     for a_code, a_val in fg.flightGraph.items():
+    #         new_flights = []
+    #         for f in a_val.flights:
+    #             if f.duration > 0:
+    #                 new_flights.append(f)
+    #         fg.flightGraph[a_code].flights = new_flights
+    # with open("new_graph.json", "w") as json_file:
+    #     json_string = json.dumps(fg.as_dict(), indent=2, sort_keys=True)
+    #     json_file.write(json_string)
+
+
     with open("graph.json", "r") as json_file:
         json_from_file = json.load(json_file)
         fg = flight_graph.from_dict(json_from_file)
-        for a_code, a_val in fg.flightGraph.items():
-            for f in a_val.flights:
-                if f.duration < 0:
-                    a_val.flights.remove(f)
-    with open("new_graph.json", "w") as json_file:
-        json_string = json.dumps(fg.as_dict(), indent=2, sort_keys=True)
-        json_file.write(json_string)
-
-
-
-        #print(fg.flightGraph)
-    #    print(fg.get_flight("KATL", "KDFW", 0.5, 0.5))
+        print(fg.get_flight("KATL", "KDFW", 0.5, 0.5))
