@@ -28,6 +28,7 @@ function setup() {
 
 
 function draw() {
+  updateCanvasSize();
   background(128 * sin(millis()/1000), 64, 64);
   drawEdges();
   drawNodes();
@@ -91,4 +92,15 @@ function drawEdges() {
       line(aScreenCoords[0], aScreenCoords[1], destScreenCoords[0], destScreenCoords[1]);
     }
   }
+}
+
+function updateCanvasSize() {
+  let canvasDiv = document.getElementById('canvasContainer');
+  if (width != canvasDiv.offsetWidth || height != canvasDiv.offsetHeight) {
+    resizeCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
+  }
+}
+
+function windowResized(){
+  updateCanvasSize();
 }
