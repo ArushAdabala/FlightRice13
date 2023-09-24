@@ -5,7 +5,6 @@
     <title>SustainaFlight</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-
     <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
     <script language="javascript" type="text/javascript" src="hackrice2023.js"></script>
 </head>
@@ -27,51 +26,63 @@
             </div>
             <div id="main" class="col-md-9 main-content">
                 <!-- Your main content here -->
+                <!-- ...existing content... -->
             </div>
         </div>
         <div class="row bottom-div">
-            <form>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail4">Start Airport (ICAO)</label>
-                    <input type="text" class="form-control" id="sport" placeholder="KIAH">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputPassword4">End Airport (ICAO)</label>
-                    <input type="text" class="form-control" id="eport" placeholder="KATL">
-                  </div>
+            <div class="col-md-4">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4">Start Airport (ICAO)</label>
+                          <input type="text" class="form-control" id="sport" placeholder="KIAH">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4">End Airport (ICAO)</label>
+                          <input type="text" class="form-control" id="eport" placeholder="KATL">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                          <table class="inputTable" style="width:100%">
+                              <tr>
+                                  <td>
+                                      Carbon:
+                                  </td>
+                                  <td>
+                                      Time:
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td align="center">
+                                      <div class="slidecontainer">
+                                          <input type="range" min="0" max="100" value="50" class="slider" id="cweight">
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="slidecontainer">
+                                          <input type="range" min="0" max="100" value="50" class="slider" id="tweight">
+                                      </div>
+                                  </td>
+                              </tr>
+                          </table>
+                        </div>
+                      <div class="col-md-12 text-center">
+                          <button type="button" onclick="onClick()" class="btn btn-primary">Submit</button>
+                      </div>
+      
+                </form>
+            </div>
+            <div class="col-md-8" style="overflow:auto; height:100%;">
+                <div class="card">
+                    <div class="card-header">
+                        Flight Paths
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Optimal Flight Routes: </h5>
+                        <pre id="outputBox" class="card-text"></pre> <!-- Output will go here -->
+                    </div>
                 </div>
-                <div class="form-group">
-                    <table class="inputTable" style="width:100%">
-                        <tr>
-                            <td>
-                                Carbon:
-                            </td>
-                            <td>
-                                Time:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <div class="slidecontainer">
-                                    <input type="range" min="0" max="100" value="50" class="slider" id="cweight">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="slidecontainer">
-                                    <input type="range" min="0" max="100" value="50" class="slider" id="tweight">
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                  </div>
-                <div class="col-md-12 text-center">
-                    <button type="button" onclick="onClick()" class="btn btn-primary">Submit</button>
-                </div>
-
-            </form>
-            <!-- Bottom div content here -->
-
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

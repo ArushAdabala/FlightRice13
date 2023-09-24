@@ -127,7 +127,7 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
             // Run function to update map
             latestPath = paths[currentAirport];
             draw();  // need to redraw to display latest path
-            return [distances[currentAirport], paths[currentAirport]]
+            return paths[currentAirport]
         }
         unvisited.delete(currentAirport)
         currflights = flightGraph[currentAirport].flights
@@ -152,10 +152,13 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
 function onClick() {
   // Called when the form's submit button is clicked
     let start_airport = document.getElementById("sport").value;
+    console.log(start_airport)
     if (start_airport.length < 4) {
         start_airport = "K" + start_airport;
         document.getElementById("sport").value = "K" + document.getElementById("sport").value;
     }
+    console.log(Object.keys(flightGraph))
+
     if (!(start_airport in Object.keys(flightGraph))) {
         alert("That airport is not in the database");
         return;
@@ -165,16 +168,30 @@ function onClick() {
         end_airport = "K" + end_airport;
         document.getElementById("eport").value = "K" + document.getElementById("eport").value;
     }
+    console.log(Object.keys(flightGraph))
     if (!(end_airport in Object.keys(flightGraph))) {
         alert("That airport is not in the database");
         return;
     }
     let carbon_weight = Number(document.getElementById("cweight").value);
     let time_weight = Number(document.getElementById("tweight").value);
-    document.getElementById("stuff").innerHTML = get_flight(start_airport,end_airport,carbon_weight,time_weight);
+    displayFlightPath(get_flight(start_airport,end_airport,carbon_weight,time_weight))
 }
 
-
+function displayFlightPath(outputArray) {
+  const airports = outputArray
+  let formattedString = ""
+  for (let i = 0; i < airports.length; i++) {
+      formattedString += airports[i];
+      if (i == airports.length-1) {
+        break;
+      }
+      formattedString += " -> "
+      console.log(formattedString)
+  }
+  
+  document.getElementById("outputBox").innerText = formattedString;
+}
 function updateCanvasSize() {
   // Works
   let canvasDiv = document.getElementById('main');
