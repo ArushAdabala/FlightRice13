@@ -135,6 +135,7 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         if (currentAirport == end_airport){
             console.log("WOOOO");
             // Run function to update map
+            print(distances[currentAirport], paths[currentAirport])
             highlightPath(paths[currentAirport])
             return [distances[currentAirport], paths[currentAirport]]
         }
@@ -149,7 +150,7 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
             if (distances[currentAirport] + calcWeights(flight) < distances[flight.dest_code]){
                 distances[currentAirport] + calcWeights(flight) < distances[flight.dest_code];
                 distances[flight.dest_code] = distances[currentAirport] + calcWeights(flight)
-                paths[flight.dest_code] = paths[currentAirport] + [flight.dest_code]
+                paths[flight.dest_code] = paths[currentAirport].concat([flight.dest_code])
             }
         }
     }
