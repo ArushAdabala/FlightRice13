@@ -1,7 +1,7 @@
 
 let flightGraph;
 let canva;
-let latestPath = null;
+let latestPath = ['KATL', 'KMCO', 'KIAH'];
 
 function preload() {
   flightGraph = loadGraphFromJSON();
