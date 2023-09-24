@@ -8,10 +8,11 @@ function preload() {
 
 
 function setup() {
-  canva = createCanvas(100,100);
+  let parentDiv = document.getElementById("main")
+  canva = createCanvas(parentDiv.offsetWidth,400);
   canva.parent("main")
 
-  fitToContainer(canva);
+  //fitToContainer(canva);
   
   /*
   let boy = { thing1: func => boy.thing2 = "a", thing2: true };
@@ -94,12 +95,14 @@ function drawEdges() {
   }
 }
 
+
 function updateCanvasSize() {
   let canvasDiv = document.getElementById('canvasContainer');
   if (width != canvasDiv.offsetWidth || height != canvasDiv.offsetHeight) {
     resizeCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
   }
 }
+
 
 function fitToContainer(canvas){
   // Make it visually fill the positioned parent
@@ -112,7 +115,9 @@ function fitToContainer(canvas){
   print(canvas.style.width);
 }
 
+/*
 function windowResized() {
   // called when window is resized
   fitToContainer(canva);
 }
+*/
