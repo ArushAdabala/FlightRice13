@@ -148,11 +148,19 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
     return "no flight path found"
 }
 function onClick(){
-    let start_airport = document.getElementById("sport").value
-    let end_airport = document.getElementById("eport").value
-    let carbon_weight = Number(document.getElementById("cweight").value)
-    let time_weight = Number(document.getElementById("tweight").value)
-    document.getElementById("stuff").innerHTML = get_flight(start_airport,end_airport,carbon_weight,time_weight)
+    let start_airport = document.getElementById("sport").value;
+    if (start_airport.length < 3) {
+        start_airport = "K" + start_airport;
+        document.getElementById("sport").value = "K" + document.getElementById("sport").value;
+    }
+    let end_airport = document.getElementById("eport").value;
+    if (end_airport.length < 3) {
+        end_airport = "K" + end_airport;
+        document.getElementById("eport").value = "K" + document.getElementById("eport").value;
+    }
+    let carbon_weight = Number(document.getElementById("cweight").value);
+    let time_weight = Number(document.getElementById("tweight").value);
+    document.getElementById("stuff").innerHTML = get_flight(start_airport,end_airport,carbon_weight,time_weight);
 }
 
 
