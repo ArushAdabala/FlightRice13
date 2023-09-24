@@ -67,7 +67,9 @@ function coordsToScreenPos(pos) {
 function highlightPath(pathList) {
   stroke(255,255,0);
   strokeWeight(2);
+  print(pathList);
   for (let i = 0; i < pathList.length-1; i++) {
+    print(pathList[i], pathList[i+1]);
     let currentCoords = flightGraph[pathList[i]].coordinates;
     let currentScreenCoords = coordsToScreenPos(currentCoords);
     let nextCoords = flightGraph[pathList[i+1]].coordinates;
