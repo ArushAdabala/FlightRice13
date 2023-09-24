@@ -106,6 +106,8 @@ def get_airport_flights(airport_code):
             break
         #print(info[4], info[5], info[5] - info[4], (info[5] - info[4]).total_seconds())
         new_info = [info[0], info[1], info[2], info[3], (info[5] - info[4]).total_seconds()]
+        if (info[5] - info[4]).total_seconds() < 0:
+            print()
         try:
             f = Flight(*new_info)
             flights.append(f)  # unrolling list into args
