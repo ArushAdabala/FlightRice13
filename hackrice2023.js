@@ -156,10 +156,18 @@ function onClick() {
         start_airport = "K" + start_airport;
         document.getElementById("sport").value = "K" + document.getElementById("sport").value;
     }
+    if (!(start_airport in Object.keys(flightGraph))) {
+        alert("That airport is not in the database");
+        return;
+    }
     let end_airport = document.getElementById("eport").value;
     if (end_airport.length < 4) {
         end_airport = "K" + end_airport;
         document.getElementById("eport").value = "K" + document.getElementById("eport").value;
+    }
+    if (!(end_airport in Object.keys(flightGraph))) {
+        alert("That airport is not in the database");
+        return;
     }
     let carbon_weight = Number(document.getElementById("cweight").value);
     let time_weight = Number(document.getElementById("tweight").value);
