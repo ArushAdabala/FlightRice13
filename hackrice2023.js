@@ -13,6 +13,7 @@ function setup() {
   canva = createCanvas(parentDiv.offsetWidth,300);
   canva.parent("main")
   latestPath = ['KATL', 'KMCO', 'KIAH'];
+  noLoop();
 }
 
 
@@ -24,7 +25,6 @@ function draw() {
   drawEdges();
   drawNodes();
   highlightPath();
-  noLoop();
 }
 
 
@@ -125,7 +125,7 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
             console.log("WOOOO");
             // Run function to update map
             latestPath = paths[currentAirport];
-            highlightPath();
+            draw();  // need to redraw to display latest path
             return [distances[currentAirport], paths[currentAirport]]
         }
         unvisited.delete(currentAirport)
