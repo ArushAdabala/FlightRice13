@@ -11,7 +11,7 @@ class flight_graph:
             self.flightGraph = {}
             with open("airports.txt") as f:
                 all_codes = f.read().split("\n")
-                for code in all_codes[:2]:
+                for code in all_codes:
                     self.flightGraph[code] = airport_scraper.get_airport(code)
         else:
             self.flightGraph = flightGraph

@@ -31,8 +31,8 @@ function setup() {
 
 function draw() {
   background(128 * sin(millis()/1000), 64, 64);
-  //drawEdges();
-  //drawNodes();
+  drawEdges();
+  drawNodes();
 }
 
 
