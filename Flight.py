@@ -25,7 +25,7 @@ class Flight:
         return self.carbon
 
     def get_flight_cost(self):
-        #unimplemented
+        # unimplemented
         return
 
     def __str__(self):

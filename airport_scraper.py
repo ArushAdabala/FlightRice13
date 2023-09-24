@@ -148,12 +148,3 @@ def get_airport(airport_code):
     return Airport(id=airport_code, name=name, coords=coords, elev=elev, flights=flights)
 
 
-a = get_airport("KIAH")
-print(a)
-print([str(f) for f in a.flights])
-
-
-def construct_graph():
-    airports = []
-    for code in all_airport_codes[:10]:
-        airports.append(get_airport(code))
