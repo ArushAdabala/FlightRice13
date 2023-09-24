@@ -12,7 +12,6 @@ function setup() {
   let parentDiv = document.getElementById("main")
   canva = createCanvas(parentDiv.offsetWidth,300);
   canva.parent("main")
-  latestPath = ['KATL', 'KMCO', 'KIAH'];
   noLoop();
 }
 
@@ -172,10 +171,8 @@ function fitToContainer(canvas){
   canvas.style.width ='100%';
   canvas.style.height='100%';
   // ...then set the internal size to match
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-  print("canvas fitted to container");
-  print(canvas.style.width);
+  canvas.width = canvas.offsetWidth * 0.9;
+  canvas.height = canvas.offsetHeight * 0.9;
 }
 
 
