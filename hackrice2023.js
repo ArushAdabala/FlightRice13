@@ -153,26 +153,9 @@ function onClick() {
   // Called when the form's submit button is clicked
     let start_airport = document.getElementById("sport").value;
     console.log(start_airport)
-    if (start_airport.length < 4) {
-        start_airport = "K" + start_airport;
-        document.getElementById("sport").value = "K" + document.getElementById("sport").value;
-    }
-    console.log(Object.keys(flightGraph))
 
-    if (!(start_airport in Object.keys(flightGraph))) {
-        alert("That airport is not in the database");
-        return;
-    }
     let end_airport = document.getElementById("eport").value;
-    if (end_airport.length < 4) {
-        end_airport = "K" + end_airport;
-        document.getElementById("eport").value = "K" + document.getElementById("eport").value;
-    }
-    console.log(Object.keys(flightGraph))
-    if (!(end_airport in Object.keys(flightGraph))) {
-        alert("That airport is not in the database");
-        return;
-    }
+
     let carbon_weight = Number(document.getElementById("cweight").value);
     let time_weight = Number(document.getElementById("tweight").value);
     displayFlightPath(get_flight(start_airport,end_airport,carbon_weight,time_weight))
