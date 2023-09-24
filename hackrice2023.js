@@ -1,7 +1,7 @@
 
 let flightGraph;
 let canva;
-let latestPath = ['KATL', 'KMCO', 'KIAH'];
+let latestPath = null;
 
 function preload() {
   flightGraph = loadGraphFromJSON();
@@ -12,6 +12,7 @@ function setup() {
   let parentDiv = document.getElementById("main")
   canva = createCanvas(parentDiv.offsetWidth,300);
   canva.parent("main")
+  latestPath = ['KATL', 'KMCO', 'KIAH'];
 }
 
 
@@ -123,7 +124,7 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         if (currentAirport == end_airport){
             console.log("WOOOO");
             // Run function to update map
-            pathList = paths[currentAirport];
+            latestPath = paths[currentAirport];
             highlightPath();
             return [distances[currentAirport], paths[currentAirport]]
         }
