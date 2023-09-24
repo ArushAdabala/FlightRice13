@@ -52,7 +52,8 @@ def formatted_time_to_datetime(time, a_or_p):
     tz_string = split_time[1]
     if tz_string not in pytz.all_timezones_set:
         tz_string = timezones[tz_string]
-    return time.replace(tzinfo=pytz.timezone(tz_string))
+    #return time.replace(tzinfo=pytz.timezone(tz_string))
+    return pytz.timezone(tz_string).localize(time)
 
 
 def get_airport_flights(airport_code):
@@ -80,26 +81,33 @@ def get_airport_flights(airport_code):
         dest_code = info[2].split("(")[1].split(")")[0]
         if len(dest_code) < 4:
             dest_code = "K" + dest_code  # We're just going to assume this
-        if dest_code not in all_airport_codes:
+        if dest_code not in all_airport_codes or dest_code == airport_code:
             print(f"No valid destination! ({dest_code})")
             continue
         info.insert(3, dest_code)
 
         # idx 4 and 5 are times in different timezones
+        has_error = False
         for t_idx in (4,5):
             time = info[t_idx]
             if "(?)" in time:
                 print("Error: Malformatted time! (?) why is this in here?")
-                continue
+                has_error = True
+                break
             if "a" in time:
                 info[t_idx] = formatted_time_to_datetime(time, "a")
             elif "p" in time:
                 info[t_idx] = formatted_time_to_datetime(time, "p")
             else:
                 print("Error: Malformatted time!")
-                continue
+                has_error = True
+                break
+        if has_error:
+            break
+        #print(info[4], info[5], info[5] - info[4], (info[5] - info[4]).total_seconds())
+        new_info = [info[0], info[1], info[2], info[3], (info[5] - info[4]).total_seconds()]
         try:
-            f = Flight(*info)
+            f = Flight(*new_info)
             flights.append(f)  # unrolling list into args
         except Exception as e:
             # he he he
