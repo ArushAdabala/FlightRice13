@@ -1,6 +1,7 @@
 
 let flightGraph;
 let canva;
+let latestPath = null;
 
 function preload() {
   flightGraph = loadGraphFromJSON();
@@ -11,21 +12,6 @@ function setup() {
   let parentDiv = document.getElementById("main")
   canva = createCanvas(parentDiv.offsetWidth,300);
   canva.parent("main")
-
-  fitToContainer(canva);
-  
-  /*
-  let boy = { thing1: func => boy.thing2 = "a", thing2: true };
-  delete boy.thing2
-  
-  if (boy.thing1) {
-    print("One")
-  }
-  if (boy.thing2) {
-    print("Two")
-  }
-  */
-  //noLoop();
 }
 
 
@@ -36,6 +22,9 @@ function draw() {
   rect(0,0,width,height);
   drawEdges();
   drawNodes();
+  if (latestPath != null) {
+    highlightPath()
+  }
   noLoop();
 }
 
@@ -64,15 +53,13 @@ function coordsToScreenPos(pos) {
 }
 
 
-function highlightPath(pathList) {
+function highlightPath() {
   stroke(255,255,0);
   strokeWeight(2);
-  print(pathList);
-  for (let i = 0; i < pathList.length-1; i++) {
-    print(pathList[i], pathList[i+1]);
-    let currentCoords = flightGraph[pathList[i]].coordinates;
+  for (let i = 0; i < latestPath.length-1; i++) {
+    let currentCoords = flightGraph[latestPath[i]].coordinates;
     let currentScreenCoords = coordsToScreenPos(currentCoords);
-    let nextCoords = flightGraph[pathList[i+1]].coordinates;
+    let nextCoords = flightGraph[latestPath[i+1]].coordinates;
     let nextScreenCoords = coordsToScreenPos(nextCoords);
     line(currentScreenCoords[0], currentScreenCoords[1], nextScreenCoords[0], nextScreenCoords[1]);
   }
@@ -135,8 +122,8 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         if (currentAirport == end_airport){
             console.log("WOOOO");
             // Run function to update map
-            print(distances[currentAirport], paths[currentAirport])
-            highlightPath(paths[currentAirport])
+            pathList = paths[currentAirport];
+            highlightPath();
             return [distances[currentAirport], paths[currentAirport]]
         }
         unvisited.delete(currentAirport)
@@ -164,7 +151,10 @@ function onClick(){
     let time_weight = Number(document.getElementById("tweight").value)
     document.getElementById("stuff").innerHTML = get_flight(start_airport,end_airport,carbon_weight,time_weight)
 }
+
+
 function updateCanvasSize() {
+  // Works
   let canvasDiv = document.getElementById('main');
   if (width != canvasDiv.offsetWidth || height != canvasDiv.offsetHeight) {
     resizeCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
@@ -173,6 +163,7 @@ function updateCanvasSize() {
 
 
 function fitToContainer(canvas){
+  // Seems to doesn't works
   // Make it visually fill the positioned parent
   canvas.style.width ='100%';
   canvas.style.height='100%';
