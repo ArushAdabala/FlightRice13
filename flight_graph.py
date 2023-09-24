@@ -72,6 +72,6 @@ if __name__ == "__main__":
         json_from_file = json.load(json_file)
         #counter = 0
         fg = flight_graph.from_dict(json_from_file)
-        print(fg.get_flight("KIAH","KDFW",0.5,0.5))
+        print(fg.get_flight("KATL","KPUW",0.5,0.5))
         #for key, value in flight_graph.from_dict(json_from_file).flightGraph.items():
             #print(counter)
