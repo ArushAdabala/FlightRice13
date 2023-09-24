@@ -128,7 +128,7 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
 }
 
 function updateCanvasSize() {
-  let canvasDiv = document.getElementById('canvasContainer');
+  let canvasDiv = document.getElementById('main');
   if (width != canvasDiv.offsetWidth || height != canvasDiv.offsetHeight) {
     resizeCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
   }
@@ -149,5 +149,5 @@ function fitToContainer(canvas){
 
 function windowResized() {
   // called when window is resized
-  fitToContainer(canva);
+  updateCanvasSize();
 }
