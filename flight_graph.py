@@ -2,21 +2,31 @@ import airport_scraper
 from Flight import Flight
 from Airport import Airport
 import math
+import json
 
 
 class flight_graph:
-    def __init__(self):
-        self.flightGraph = {}
-        with open("airports.txt") as f:
-            all_codes = f.read().split("\n")
-            for code in all_codes:
-                self.flightGraph[code] = airport_scraper.get_airport(code)
+    def __init__(self, flightGraph=None):
+        if flightGraph is None:
+            self.flightGraph = {}
+            with open("airports.txt") as f:
+                all_codes = f.read().split("\n")
+                for code in all_codes[:5]:
+                    self.flightGraph[code] = airport_scraper.get_airport(code)
+        else:
+            self.flightGraph = flightGraph
 
     def as_dict(self):
         new_dict = {}
         for key, value in self.flightGraph.items():
             new_dict[key] = value.as_dict()
         return new_dict
+
+    @staticmethod
+    def from_dict(graph_dict):
+        for key, value in graph_dict.items():
+            graph_dict[key] = Airport.from_dict(value)
+        return flight_graph(flightGraph=graph_dict)
 
     def get_flight(self, start_airport, end_airport, carbon_weight, time_weight):
         unvisited = set({})
@@ -52,4 +62,18 @@ class flight_graph:
             
 
 if __name__ == "__main__":
-    print(flight_graph().get_flight("KIAH","KATL",0.5,0.5))
+    #print(flight_graph().get_flight("KIAH","KATL",0.5,0.5))
+
+    # Scrape for flight data and save to JSON
+    #with open("graph.json", "w") as json_file:
+    #    fg = flight_graph()
+    #    json_string = json.dumps(fg.as_dict(), indent=2, sort_keys=True)
+    #    json_file.write(json_string)
+
+    # Load flight data from JSON, skip scraping
+    with open("graph.json", "r") as json_file:
+        json_from_file = json.load(json_file)
+        #print(flight_graph.from_dict(json_from_file).flightGraph)
+        for key, value in flight_graph.from_dict(json_from_file).flightGraph.items():
+            print(value)
+

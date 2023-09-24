@@ -88,14 +88,22 @@ def get_airport_flights(airport_code):
         # idx 4 and 5 are times in different timezones
         for t_idx in (4,5):
             time = info[t_idx]
+            if "(?)" in time:
+                print("Error: Malformatted time! (?) why is this in here?")
+                continue
             if "a" in time:
                 info[t_idx] = formatted_time_to_datetime(time, "a")
             elif "p" in time:
                 info[t_idx] = formatted_time_to_datetime(time, "p")
             else:
                 print("Error: Malformatted time!")
-
-        flights.append(Flight(*info))  # unrolling list into args
+                continue
+        try:
+            f = Flight(*info)
+            flights.append(f)  # unrolling list into args
+        except:
+            # he he he
+            pass
 
     return flights
 
@@ -145,6 +153,6 @@ def get_airport(airport_code):
 
     flights = get_airport_flights(airport_code)
 
-    return Airport(id=airport_code, name=name, coords=coords, elev=elev, flights=flights)
+    return Airport(id=airport_code, name=name, coordinates=coords, elev=elev, flights=flights)
 
 
