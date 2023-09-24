@@ -10,7 +10,8 @@ class Flight:
         self.dest_code = dest_code  # string, 4 chars
         self.depart_time = depart_time.utcnow()  # datetime
         self.arrive_time = arrive_time.utcnow()  # datetime
-        if carbon is None:
+        self.carbon = carbon
+        if self.carbon is None:
             self.carbon = planeCarbonOutput[plane] if plane in planeCarbonOutput else 69
 
     def get_arrival_time(self):
