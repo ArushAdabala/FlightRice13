@@ -8,9 +8,8 @@ function preload() {
 
 
 function setup() {
-  var canvasDiv = document.getElementById('canvasContainer');
   canva = createCanvas(100,100);
-  canva.parent("canvasContainer")
+  canva.parent("main")
 
   fitToContainer(canva);
   
@@ -107,8 +106,8 @@ function fitToContainer(canvas){
   canvas.style.width ='100%';
   canvas.style.height='100%';
   // ...then set the internal size to match
-  canvas.width  = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
+  resizeCanvas(canvas.offsetWidth, canvas.offsetHeight);
+  print("canvas fitted to container");
 }
 
 function windowResized(){
