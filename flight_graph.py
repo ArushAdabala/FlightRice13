@@ -89,4 +89,5 @@ if __name__ == "__main__":
     with open("graph.json", "r") as json_file:
         json_from_file = json.load(json_file)
         fg = flight_graph.from_dict(json_from_file)
+        print(sum([len(a.flights) for a in fg.flightGraph.values()]))
         print(fg.get_flight("KATL", "KDFW", 0.5, 0.5))
