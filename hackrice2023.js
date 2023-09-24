@@ -64,8 +64,16 @@ function coordsToScreenPos(pos) {
 }
 
 
-function drawUSA() {
-  
+function highlightPath(pathList) {
+  stroke(255,255,0);
+  strokeWeight(2);
+  for (let i = 0; i < pathList.length-1; i++) {
+    let currentCoords = flightGraph[pathList[i]].coordinates;
+    let currentScreenCoords = coordsToScreenPos(currentCoords);
+    let nextCoords = flightGraph[pathList[i+1]].coordinates;
+    let nextScreenCoords = coordsToScreenPos(nextCoords);
+    line(currentScreenCoords[0], currentScreenCoords[1], nextScreenCoords[0], nextScreenCoords[1]);
+  }
 }
 
 
@@ -83,6 +91,7 @@ function drawNodes() {
 
 function drawEdges() {
   stroke(200,255,255,100);
+  strokeWeight(1);
   for (let a = 0; a < Object.keys(flightGraph).length; a++) {
     let thisKey = Object.keys(flightGraph)[a];
     let thisAirport = flightGraph[thisKey];
@@ -123,6 +132,8 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         const currentAirport = sortedUnvisitedArr[0];
         if (currentAirport == end_airport){
             console.log("WOOOO");
+            // Run function to update map
+            highlightPath(paths[currentAirport])
             return [distances[currentAirport], paths[currentAirport]]
         }
         unvisited.delete(currentAirport)
