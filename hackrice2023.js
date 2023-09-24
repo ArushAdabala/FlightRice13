@@ -94,25 +94,33 @@ function drawEdges() {
     }
   }
 }
-
+let logs = []
 function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
     let unvisited = new Set();
     let distances = new Object()
     let paths = new Object()
     let airports = Object.keys(flightGraph)
-
-    for (airport in airports){
+    
+    for (let i = 0; i < airports.length; i++){
+        airport = airports[i]
         distances[airport] = 1.797693134862315E+310
         paths[airport] = [start_airport]
         unvisited.add(airport)
     }
 
     distances[airport] = 0
-
+    
     while (unvisited.size > 0){
-        let currentAirport = Array.from(unvisited).sort(function(a,b){distances[a] > distances[b]})[0]
+        let unvisitedArr = Array.from(unvisited)
+        
+        let sortedunvisitedArr = unvisitedArr.sort(function(a,b){distances[a]})
+
+        let currentAirport = sortedunvisitedArr[0]
+        logs.push(currentAirport);
+        console.log(currentAirport);
         if (currentAirport == end_airport){
-            return(distances[currentAirport], paths[currentAirport])
+            console.log("WOOOO");
+            return [distances[currentAirport], paths[currentAirport]]
         }
         unvisited.delete(currentAirport)
 
@@ -126,14 +134,16 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
             }
         }
     }
+    console.log("not pog")
     return "no flight path found"
 }
 function onClick(){
     let start_airport = document.getElementById("sport").value
+    console.log("Hi2")
     let end_airport = document.getElementById("eport").value
     let carbon_weight = Number(document.getElementById("cweight").value)
     let time_weight = Number(document.getElementById("tweight").value)
-    document.getElementById("sport").innerHTML = get_flight(start_airport,end_airport,carbon_weight,time_weight)
+    document.getElementById("stuff").innerHTML = get_flight(start_airport,end_airport,carbon_weight,time_weight)
 }
 function updateCanvasSize() {
   let canvasDiv = document.getElementById('canvasContainer');
