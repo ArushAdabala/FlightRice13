@@ -22,9 +22,7 @@ function draw() {
   rect(0,0,width,height);
   drawEdges();
   drawNodes();
-  if (latestPath != null) {
-    highlightPath()
-  }
+  highlightPath();
   noLoop();
 }
 
@@ -54,14 +52,16 @@ function coordsToScreenPos(pos) {
 
 
 function highlightPath() {
-  stroke(255,255,0);
-  strokeWeight(2);
-  for (let i = 0; i < latestPath.length-1; i++) {
-    let currentCoords = flightGraph[latestPath[i]].coordinates;
-    let currentScreenCoords = coordsToScreenPos(currentCoords);
-    let nextCoords = flightGraph[latestPath[i+1]].coordinates;
-    let nextScreenCoords = coordsToScreenPos(nextCoords);
-    line(currentScreenCoords[0], currentScreenCoords[1], nextScreenCoords[0], nextScreenCoords[1]);
+  if (latestPath != null) {
+    stroke(255,255,0);
+    strokeWeight(2);
+    for (let i = 0; i < latestPath.length-1; i++) {
+      let currentCoords = flightGraph[latestPath[i]].coordinates;
+      let currentScreenCoords = coordsToScreenPos(currentCoords);
+      let nextCoords = flightGraph[latestPath[i+1]].coordinates;
+      let nextScreenCoords = coordsToScreenPos(nextCoords);
+      line(currentScreenCoords[0], currentScreenCoords[1], nextScreenCoords[0], nextScreenCoords[1]);
+    }
   }
 }
 
