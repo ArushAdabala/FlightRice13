@@ -99,9 +99,7 @@ function drawEdges() {
   }
 }
 
-function calcWeights(curr_flight){
-  return curr_flight.duration * Number(time_weight) + curr_flight.carbon * Number(carbon_weight)
-}
+
 
 let logs = []
 function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
@@ -123,16 +121,21 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         
         const sortedUnvisitedArr = unvisitedArr.sort((a, b) => distances[a] - distances[b]);
         const currentAirport = sortedUnvisitedArr[0];
-
         if (currentAirport == end_airport){
             console.log("WOOOO");
             return [distances[currentAirport], paths[currentAirport]]
         }
         unvisited.delete(currentAirport)
-        
-        for (flight in currentAirport.flights){
+        currflights = flightGraph[currentAirport].flights
+        for (let flight of currflights){
+            function calcWeights(curr_flight){
+              return curr_flight.duration * Number(time_weight) + curr_flight.carbon * Number(carbon_weight)
+            }
+            console.log(flight)
+            console.log(distances[currentAirport], calcWeights(flight), distances[flight.dest_code])
             if (distances[currentAirport] + calcWeights(flight) < distances[flight.dest_code]){
-                distances[flight.dest_code] = distances[currentAirport] + calc_weights(flight)
+                distances[currentAirport] + calcWeights(flight) < distances[flight.dest_code];
+                distances[flight.dest_code] = distances[currentAirport] + calcWeights(flight)
                 paths[flight.dest_code] = paths[currentAirport] + [flight.dest_code]
             }
         }
