@@ -106,8 +106,8 @@ function fitToContainer(canvas){
   canvas.style.width ='100%';
   canvas.style.height='100%';
   // ...then set the internal size to match
-  canvas.width = offsetWidth;
-  canvas.height = offsetHeight;
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
   print("canvas fitted to container");
   print(canvas.style.width);
 }
