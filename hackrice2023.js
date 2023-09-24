@@ -133,7 +133,7 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         currflights = flightGraph[currentAirport].flights
         for (let flight of currflights){
             function calcWeights(curr_flight){
-              return curr_flight.duration * Number(time_weight) + curr_flight.carbon * Number(carbon_weight) * 10
+              return curr_flight.duration * Number(time_weight) + curr_flight.carbon * Number(carbon_weight) * 50
             }
             console.log(flight)
             console.log(distances[currentAirport], calcWeights(flight), distances[flight.dest_code])
