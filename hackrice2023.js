@@ -30,9 +30,12 @@ function setup() {
 
 
 function draw() {
-  background(128 * sin(millis()/1000), 64, 64);
+  fill(0);
+  noStroke();
+  rect(0,0,width,height);
   drawEdges();
   drawNodes();
+  noLoop();
 }
 
 
@@ -146,7 +149,7 @@ function onClick(){
     document.getElementById("stuff").innerHTML = get_flight(start_airport,end_airport,carbon_weight,time_weight)
 }
 function updateCanvasSize() {
-  let canvasDiv = document.getElementById('canvasContainer');
+  let canvasDiv = document.getElementById('main');
   if (width != canvasDiv.offsetWidth || height != canvasDiv.offsetHeight) {
     resizeCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
   }
@@ -167,5 +170,5 @@ function fitToContainer(canvas){
 
 function windowResized() {
   // called when window is resized
-  fitToContainer(canva);
+  updateCanvasSize();
 }
