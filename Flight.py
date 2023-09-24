@@ -24,5 +24,9 @@ class Flight:
         # unimplemented
         return self.carbon
 
+    def get_flight_cost(self):
+        #unimplemented
+        return
+
     def __str__(self):
         return f"Flight {self.id} to {self.dest_name} at {self.depart_time.strftime('%H:%M:%S')}"
