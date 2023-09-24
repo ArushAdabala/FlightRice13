@@ -128,7 +128,13 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
     }
     return "no flight path found"
 }
-
+function onClick(){
+    let start_airport = document.getElementById("sport").value
+    let end_airport = document.getElementById("eport").value
+    let carbon_weight = Number(document.getElementById("cweight").value)
+    let time_weight = Number(document.getElementById("tweight").value)
+    document.getElementById("sport").innerHTML = get_flight(start_airport,end_airport,carbon_weight,time_weight)
+}
 function updateCanvasSize() {
   let canvasDiv = document.getElementById('canvasContainer');
   if (width != canvasDiv.offsetWidth || height != canvasDiv.offsetHeight) {

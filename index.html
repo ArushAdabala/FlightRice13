@@ -15,7 +15,8 @@
             <h1>SustainaFlight</h1>
         </div>
         <div class="row">
-            <div class="col-md-3 side-div">
+            <div id = "sidebar" class="col-md-3 side-div">
+                <p id = "stuff"></p>
                 <!-- Side div content here -->
             </div>
             <div id="main" class="col-md-9 main-content">
@@ -24,13 +25,13 @@
         </div>
         <div class="row bottom-div">
             <form>
-                <label for="fname">Start Airport (ICAO):</label><br>
+                <label>Start Airport (ICAO):</label><br>
                 <input type="text" id="sport" name="fname"><br>
-                <label for="lname">End Airport (ICAO)</label><br>
+                <label>End Airport (ICAO)</label><br>
                 <input type="text" id="eport" name="lname">
-                <label for="lname">carbon weight</label><br>
+                <label>carbon weight</label><br>
                 <input type="text" id="cweight" name="lname">
-                <label for="lname">time weight</label><br>
+                <label>time weight</label><br>
                 <input type="text" id="tweight" name="lname">
                 <button onclick="get_flights()">OK</button>
             </form>
