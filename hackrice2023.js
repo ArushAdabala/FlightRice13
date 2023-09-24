@@ -30,7 +30,9 @@ function setup() {
 
 
 function draw() {
-  background(0,0,0,1);
+  fill(0);
+  noStroke();
+  rect(0,0,width,height);
   drawEdges();
   drawNodes();
   noLoop();
