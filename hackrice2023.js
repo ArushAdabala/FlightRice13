@@ -30,9 +30,10 @@ function setup() {
 
 
 function draw() {
-  background(128 * sin(millis()/1000), 64, 64);
+  background(0);
   drawEdges();
   drawNodes();
+  noLoop();
 }
 
 
