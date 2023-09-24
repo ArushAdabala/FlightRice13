@@ -8,6 +8,17 @@ class Airport:
 
     def get_size(self):
         return len(self.flights)
+    def get_flights(self):
+        return self.flights
+
+    def get_coordinates(self):
+        return self.coordinates
+
+    def get_name(self):
+        return self.name
+
+    def get_id(self):
+        return self.id
 
     def as_dict(self):
         flights_dicts = []

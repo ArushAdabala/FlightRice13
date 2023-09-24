@@ -20,9 +20,9 @@ class Flight:
         # unimplemented
         return self.carbon
 
-    def get_plane_carbon_factor(self):
+    def get_dest(self):
         # unimplemented
-        return self.carbon
+        return self.dest_code
 
     def get_flight_cost(self):
         # unimplemented
