@@ -7,7 +7,8 @@ function preload() {
 
 
 function setup() {
-  createCanvas(800, 600);
+  let canva = createCanvas(800, 600);
+  canva.parent("canvasContainer")
   
   /*
   let boy = { thing1: func => boy.thing2 = "a", thing2: true };
