@@ -103,6 +103,8 @@ function drawEdges() {
 
 let logs = []
 function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
+    carbon_weight = carbon_weight / 100;
+    time_weight = time_weight / 100;
     let unvisited = new Set();
     let distances = new Object()
     let paths = new Object()

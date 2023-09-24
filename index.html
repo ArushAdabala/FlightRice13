@@ -12,7 +12,7 @@
 <body>
     <div class="container-fluid">
         <div class="row title-div">
-            <h1>SustainaFlight</h1>
+            <h1>GreenWings</h1>
             <p id = "stuff"></p>
         </div>
         <div class="row">
@@ -31,47 +31,47 @@
         </div>
         <div class="row bottom-div">
             <form>
-                <label>Start Airport (ICAO):</label><br>
-                <input type="text" id="sport" value = "KATL" name="fname"><br>
-                <label>End Airport (ICAO)</label><br>
-                <input type="text" id="eport" value = "KIAH" name="lname">
-                <label>carbon weight</label><br>
-                <input type="text" id="cweight" value = "0.5" name="lname">
-                <label>time weight</label><br>
-                <input type="text" id="tweight" value = "0.5" name="lname">
-                <button type = 'button' onclick="onClick()">OK</button>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Start Airport (ICAO)</label>
+                    <input type="text" class="form-control" id="sport" placeholder="KIAH">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">End Airport (ICAO)</label>
+                    <input type="text" class="form-control" id="eport" placeholder="KATL">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <table class="inputTable" style="width:100%">
+                        <tr>
+                            <td>
+                                Carbon:
+                            </td>
+                            <td>
+                                Time:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <div class="slidecontainer">
+                                    <input type="range" min="0" max="100" value="50" class="slider" id="cweight">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="slidecontainer">
+                                    <input type="range" min="0" max="100" value="50" class="slider" id="tweight">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+                <div class="col-md-12 text-center">
+                    <button type="button" onclick="onClick()" class="btn btn-primary">Submit</button>
+                </div>
+
             </form>
             <!-- Bottom div content here -->
-            <table class="inputTable" style="width:100%">
-                <tr>
-                    <td>
-                        Carbon:
-                    </td>
-                    <td>
-                        Time:
-                    </td>
-                    <td>
-                        Submit:
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <div class="slidecontainer">
-                            <input type="range" min="0" max="100" value="50" class="slider" id="carbon">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="slidecontainer">
-                            <input type="range" min="0" max="100" value="50" class="slider" id="time">
-                        </div>
-                    </td>
-                    <td>
-                        <div class="submitcontainer">
-                            <input type="submit">
-                        </div>
-                    </td>
-                </tr>
-            </table>
+
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
