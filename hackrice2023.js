@@ -147,14 +147,17 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
     console.log("not pog")
     return "no flight path found"
 }
-function onClick(){
+
+
+function onClick() {
+  // Called when the form's submit button is clicked
     let start_airport = document.getElementById("sport").value;
-    if (start_airport.length < 3) {
+    if (start_airport.length < 4) {
         start_airport = "K" + start_airport;
         document.getElementById("sport").value = "K" + document.getElementById("sport").value;
     }
     let end_airport = document.getElementById("eport").value;
-    if (end_airport.length < 3) {
+    if (end_airport.length < 4) {
         end_airport = "K" + end_airport;
         document.getElementById("eport").value = "K" + document.getElementById("eport").value;
     }
