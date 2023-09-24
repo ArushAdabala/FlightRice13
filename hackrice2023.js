@@ -30,6 +30,7 @@ function setup() {
 
 
 function draw() {
+  updateCanvasSize();
   fill(0);
   noStroke();
   rect(0,0,width,height);
