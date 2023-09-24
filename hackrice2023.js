@@ -1,5 +1,6 @@
 
 let flightGraph;
+let canva;
 
 function preload() {
   flightGraph = loadGraphFromJSON();
@@ -8,8 +9,10 @@ function preload() {
 
 function setup() {
   var canvasDiv = document.getElementById('canvasContainer');
-  let canva = createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
+  canva = createCanvas(100,100);
   canva.parent("canvasContainer")
+
+  fitToContainer(canva);
   
   /*
   let boy = { thing1: func => boy.thing2 = "a", thing2: true };
@@ -27,7 +30,6 @@ function setup() {
 
 
 function draw() {
-  updateCanvasSize();
   background(128 * sin(millis()/1000), 64, 64);
   //drawEdges();
   //drawNodes();
@@ -100,6 +102,15 @@ function updateCanvasSize() {
   }
 }
 
+function fitToContainer(canvas){
+  // Make it visually fill the positioned parent
+  canvas.style.width ='100%';
+  canvas.style.height='100%';
+  // ...then set the internal size to match
+  canvas.width  = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+
 function windowResized(){
-  updateCanvasSize();
+  fitToContainer(canva);
 }
