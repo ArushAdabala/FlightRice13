@@ -35,6 +35,36 @@
                 <button onclick="get_flights()">OK</button>
             </form>
             <!-- Bottom div content here -->
+            <table>
+                <tr>
+                    <td>
+                        Carbon:
+                    </td>
+                    <td>
+                        Time:
+                    </td>
+                    <td>
+                        Submit:
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <div class="slidecontainer">
+                            <input type="range" min="0" max="100" value="50" class="slider" id="carbon">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slidecontainer">
+                            <input type="range" min="0" max="100" value="50" class="slider" id="time">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="submitcontainer">
+                            <input type="submit">
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

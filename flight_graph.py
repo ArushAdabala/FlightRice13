@@ -11,7 +11,7 @@ class flight_graph:
             self.flightGraph = {}
             with open("airports.txt") as f:
                 all_codes = f.read().split("\n")
-                for code in all_codes:
+                for code in all_codes[:2]:
                     self.flightGraph[code] = airport_scraper.get_airport(code)
         else:
             self.flightGraph = flightGraph
@@ -64,6 +64,8 @@ if __name__ == "__main__":
     # Scrape for flight data and save to JSON
     with open("graph.json", "w") as json_file:
         fg = flight_graph()
+        #print([a.flights for a in fg.flightGraph.values()])
+        #print([[f for f in a.flights] for a in fg.flightGraph.values()])
         json_string = json.dumps(fg.as_dict(), indent=2, sort_keys=True)
         json_file.write(json_string)
 
