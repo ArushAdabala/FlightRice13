@@ -17,7 +17,8 @@ class flight_graph:
             distances[code] = math.inf
             unvisited.add(code)
         while len(unvisited) > 0:
-            currAirport
+            currAirport = min(unvisited)
+            
 
 
 
