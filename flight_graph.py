@@ -51,7 +51,7 @@ class flight_graph:
 
             for flight in self.flightGraph[currAirport].get_flights():
                 def calc_weights(curr_flight):
-                    return curr_flight.get_plane_carbon_factor() * carbon_weight + curr_flight.get_flight_duration().total_seconds() * time_weight
+                    return curr_flight.get_plane_carbon_factor() * carbon_weight + curr_flight.get_flight_duration() * time_weight
                 if distances[currAirport] + calc_weights(flight) < distances[flight.dest_code]:
                     distances[flight.dest_code] = distances[currAirport] + calc_weights(flight)
                     paths[flight.dest_code] = paths[currAirport] + [flight.dest_code]
@@ -62,16 +62,12 @@ class flight_graph:
 
 if __name__ == "__main__":
     # Scrape for flight data and save to JSON
-    #with open("graph.json", "w") as json_file:
-    #    fg = flight_graph()
-    #    json_string = json.dumps(fg.as_dict(), indent=2, sort_keys=True)
-    #    json_file.write(json_string)
+    with open("graph.json", "w") as json_file:
+        fg = flight_graph()
+        json_string = json.dumps(fg.as_dict(), indent=2, sort_keys=True)
+        json_file.write(json_string)
 
     # Load flight data from JSON, skip scraping
-    with open("graph.json", "r") as json_file:
-        json_from_file = json.load(json_file)
-        #counter = 0
-        fg = flight_graph.from_dict(json_from_file)
-        print(fg.get_flight("KATL","KPUW",0.5,0.5))
-        #for key, value in flight_graph.from_dict(json_from_file).flightGraph.items():
-            #print(counter)
+    #with open("graph.json", "r") as json_file:
+        #json_from_file = json.load(json_file)
+        #fg = flight_graph.from_dict(json_from_file)

@@ -8,18 +8,14 @@ class Flight:
         self.plane = plane  # string
         self.dest_name = dest_name  # string
         self.dest_code = dest_code  # string, 4 chars
-        self.depart_time = depart_time.utcnow()  # datetime
-        self.arrive_time = arrive_time.utcnow()  # datetime
+        self.duration = arrive_time.utcnow().total_seconds() - depart_time.utcnow().total_seconds()
         self.carbon = carbon
         if self.carbon is None:
             self.carbon = planeCarbonOutput[plane] if plane in planeCarbonOutput else 69
 
-    def get_arrival_time(self):
-        return self.arrive_time
-    def get_departure_time(self):
-        return self.depart_time
+
     def get_flight_duration(self):
-        return self.arrive_time - self.depart_time
+        return self.duration
 
     def get_plane_carbon_factor(self):
         # unimplemented
@@ -35,21 +31,17 @@ class Flight:
 
     def as_dict(self):
         # return a dict
-        depart_time = self.depart_time.isoformat()
-        arrive_time = self.arrive_time.isoformat()
+        duration = self.duration
         d = self.__dict__
-        d["depart_time"] = depart_time
-        d["arrive_time"] = arrive_time
+        d["duration"] = duration
         return d
 
     @staticmethod
     def from_dict(flight_dict):
         # dict must have been created from a Flight.__dict__
-        depart_time = datetime.datetime.fromisoformat(flight_dict["depart_time"])
-        arrive_time = datetime.datetime.fromisoformat(flight_dict["arrive_time"])
-        flight_dict["depart_time"] = depart_time
-        flight_dict["arrive_time"] = arrive_time
+        flight_dict["duration"] = float(flight_dict["duration"])
+        flight_dict["carbon"] = float(flight_dict["carbon"])
         return Flight(**flight_dict)
 
     def __str__(self):
-        return f"Flight {self.id} to {self.dest_name} at {self.depart_time.strftime('%H:%M:%S')}"
+        return f"Flight {self.id} to {self.dest_name}"

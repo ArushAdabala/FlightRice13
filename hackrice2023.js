@@ -90,3 +90,32 @@ function drawEdges() {
     }
   }
 }
+
+function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
+    let unvisited = new Set();
+    let distances = new Object()
+    let paths = new Object()
+    let airports = Object.keys(flightGraph)
+
+    for (airport in airports){
+        distances[airport] = 1.797693134862315E+310
+        paths[airport] = [start_airport]
+        unvisited.add(airport)
+    }
+
+    distances[airport] = 0
+
+    while (unvisited.size > 0){
+        let currentAirport = Array.from(unvisited).sort(function(a,b){distances[a] > distances[b]})[0]
+        if (currentAirport == end_airport){
+            return(distances[currentAirport], paths[currentAirport])
+        }
+        unvisited.delete(currentAirport)
+
+        for (flight in currentAirportAirport.flights){
+            function calcWeights(flight){
+
+            }
+        }
+    }
+}
