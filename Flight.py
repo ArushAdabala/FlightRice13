@@ -8,7 +8,8 @@ class Flight:
         self.plane = plane  # string
         self.dest_name = dest_name  # string
         self.dest_code = dest_code  # string, 4 chars
-        self.duration = arrive_time.utcnow().total_seconds() - depart_time.utcnow().total_seconds()
+        dTime = arrive_time - depart_time
+        self.duration = dTime.total_seconds()
         self.carbon = carbon
         if self.carbon is None:
             self.carbon = planeCarbonOutput[plane] if plane in planeCarbonOutput else 69

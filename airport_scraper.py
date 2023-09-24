@@ -101,9 +101,9 @@ def get_airport_flights(airport_code):
         try:
             f = Flight(*info)
             flights.append(f)  # unrolling list into args
-        except:
+        except Exception as e:
             # he he he
-            pass
+            print(f"Exception: {e}")
 
     return flights
 

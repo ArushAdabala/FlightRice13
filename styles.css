@@ -19,3 +19,8 @@
     height: 40vh;
     background-color: #bfbfbf;
 }
+
+.td {
+    text-align: center;
+    vertical-align: middle;
+}
