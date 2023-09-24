@@ -63,12 +63,12 @@ class flight_graph:
 if __name__ == "__main__":
 
     # Scrape for flight data and save to JSON
-    #with open("graph.json", "w") as json_file:
-        #fg = flight_graph()
-        #print([a.flights for a in fg.flightGraph.values()])
-        #print([[f for f in a.flights] for a in fg.flightGraph.values()])
-        #json_string = json.dumps(fg.as_dict(), indent=2, sort_keys=True)
-        #json_file.write(json_string)
+    with open("new_graph.json", "w") as json_file:
+        fg = flight_graph()
+        print([a.flights for a in fg.flightGraph.values()])
+        print([[f for f in a.flights] for a in fg.flightGraph.values()])
+        json_string = json.dumps(fg.as_dict(), indent=2, sort_keys=True)
+        json_file.write(json_string)
 
     # Load flight data from JSON, skip scraping
     # fg = None
@@ -86,8 +86,8 @@ if __name__ == "__main__":
     #     json_file.write(json_string)
 
 
-    with open("graph.json", "r") as json_file:
-        json_from_file = json.load(json_file)
-        fg = flight_graph.from_dict(json_from_file)
-        print(sum([len(a.flights) for a in fg.flightGraph.values()]))
-        print(fg.get_flight("KATL", "KDFW", 0.5, 0.5))
+    # with open("graph.json", "r") as json_file:
+    #     json_from_file = json.load(json_file)
+    #     fg = flight_graph.from_dict(json_from_file)
+    #     print(sum([len(a.flights) for a in fg.flightGraph.values()]))
+    #     print(fg.get_flight("KATL", "KDFW", 0.5, 0.5))
