@@ -98,6 +98,11 @@ function drawEdges() {
     }
   }
 }
+
+function calcWeights(curr_flight){
+  return curr_flight.duration * Number(time_weight) + curr_flight.carbon * Number(carbon_weight)
+}
+
 let logs = []
 function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
     let unvisited = new Set();
@@ -105,36 +110,30 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
     let paths = new Object()
     let airports = Object.keys(flightGraph)
     
-    for (let i = 0; i < airports.length; i++){
-        airport = airports[i]
-        distances[airport] = 1.797693134862315E+310
-        paths[airport] = [start_airport]
-        unvisited.add(airport)
+    for (let airport of airports) {
+      distances[airport] = Number.POSITIVE_INFINITY;  // Use JavaScript's Infinity
+      paths[airport] = [start_airport];
+      unvisited.add(airport);
     }
 
-    distances[airport] = 0
+    distances[start_airport] = 0
     
     while (unvisited.size > 0){
-        let unvisitedArr = Array.from(unvisited)
+        const unvisitedArr = Array.from(unvisited);
         
-        let sortedunvisitedArr = unvisitedArr.sort(function(a,b){distances[a]})
+        const sortedUnvisitedArr = unvisitedArr.sort((a, b) => distances[a] - distances[b]);
+        const currentAirport = sortedUnvisitedArr[0];
 
-        let currentAirport = sortedunvisitedArr[0]
-        logs.push(currentAirport);
-        console.log(currentAirport);
         if (currentAirport == end_airport){
             console.log("WOOOO");
             return [distances[currentAirport], paths[currentAirport]]
         }
         unvisited.delete(currentAirport)
-
+        
         for (flight in currentAirport.flights){
-            function calcWeights(curr_flight){
-                curr_flight.duration * Number(time_weight) + curr_flight.carbon * Number(carbon_weight)
-            }
             if (distances[currentAirport] + calcWeights(flight) < distances[flight.dest_code]){
-                distances[flight.dest_code] = distances[currAirport] + calc_weights(flight)
-                paths[flight.dest_code] = paths[currAirport] + [flight.dest_code]
+                distances[flight.dest_code] = distances[currentAirport] + calc_weights(flight)
+                paths[flight.dest_code] = paths[currentAirport] + [flight.dest_code]
             }
         }
     }
@@ -143,7 +142,6 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
 }
 function onClick(){
     let start_airport = document.getElementById("sport").value
-    console.log("Hi2")
     let end_airport = document.getElementById("eport").value
     let carbon_weight = Number(document.getElementById("cweight").value)
     let time_weight = Number(document.getElementById("tweight").value)
