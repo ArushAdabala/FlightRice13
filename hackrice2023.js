@@ -17,13 +17,18 @@ function setup() {
 
 
 function draw() {
+  drawGraph();
+  highlightPath(latestPath);
+}
+
+
+function drawGraph() {
   updateCanvasSize();
   fill(0);
   noStroke();
   rect(0,0,width,height);
   drawEdges();
   drawNodes();
-  highlightPath();
 }
 
 
@@ -51,15 +56,14 @@ function coordsToScreenPos(pos) {
 }
 
 
-function highlightPath() {
-  print(latestPath);
-  if (latestPath != null) {
+function highlightPath(path) {
+  if (path != null) {
     stroke(255,255,0);
     strokeWeight(2);
-    for (let i = 0; i < latestPath.length-1; i++) {
-      let currentCoords = flightGraph[latestPath[i]].coordinates;
+    for (let i = 0; i < path.length-1; i++) {
+      let currentCoords = flightGraph[path[i]].coordinates;
       let currentScreenCoords = coordsToScreenPos(currentCoords);
-      let nextCoords = flightGraph[latestPath[i+1]].coordinates;
+      let nextCoords = flightGraph[path[i+1]].coordinates;
       let nextScreenCoords = coordsToScreenPos(nextCoords);
       line(currentScreenCoords[0], currentScreenCoords[1], nextScreenCoords[0], nextScreenCoords[1]);
     }
@@ -122,6 +126,7 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         
         const sortedUnvisitedArr = unvisitedArr.sort((a, b) => distances[a] - distances[b]);
         const currentAirport = sortedUnvisitedArr[0];
+        highlightPath(paths[currentAirport];);
         if (currentAirport == end_airport){
             console.log("WOOOO");
             // Run function to update map
