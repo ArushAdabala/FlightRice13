@@ -126,12 +126,11 @@ function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
         
         const sortedUnvisitedArr = unvisitedArr.sort((a, b) => distances[a] - distances[b]);
         const currentAirport = sortedUnvisitedArr[0];
-        highlightPath(paths[currentAirport]);
         if (currentAirport == end_airport){
             console.log("WOOOO");
             // Run function to update map
             latestPath = paths[currentAirport];
-            draw();  // need to redraw to display latest path
+            redraw();  // need to redraw to display latest path
             return paths[currentAirport]
         }
         unvisited.delete(currentAirport)
