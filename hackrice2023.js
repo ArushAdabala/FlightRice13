@@ -106,8 +106,6 @@ function drawEdges() {
 
 let logs = []
 function get_flight(start_airport,end_airport,carbon_weight,time_weight) {
-    carbon_weight = carbon_weight / 100;
-    time_weight = time_weight / 100;
     let unvisited = new Set();
     let distances = new Object()
     let paths = new Object()
@@ -161,7 +159,9 @@ function onClick() {
     let end_airport = document.getElementById("eport").value;
 
     let carbon_weight = Number(document.getElementById("cweight").value);
+    carbon_weight = carbon_weight / 50.0 - 1.0;  // new range -1.0 to 1.0
     let time_weight = Number(document.getElementById("tweight").value);
+    time_weight = time_weight / 50.0 - 1.0;  // new range -1.0 to 1.0
     displayFlightPath(get_flight(start_airport,end_airport,carbon_weight,time_weight))
 }
 
